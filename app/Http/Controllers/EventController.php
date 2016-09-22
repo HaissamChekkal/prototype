@@ -14,7 +14,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('event.index');
+		$events = Event::all();
+        return view('event.index')->with(compact('events'));
     }
 
     /**
@@ -37,7 +38,15 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $events = new Event;
+
+        $events->name    = $request->name;
+		$events->nbPerson    = $request->nbPerson;
+        $events->nbTable  = $request->nbTable;
+		$events->type  = $request->type;
+		
+        $events->save();
+		return view('home');
     }
 
     /**
