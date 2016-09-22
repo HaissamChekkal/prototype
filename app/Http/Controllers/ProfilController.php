@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-		$events = Event::all();
-        return view('event.index')->with(compact('events'));
+        return view('profil.index');
     }
 
     /**
@@ -26,8 +25,6 @@ class EventController extends Controller
     public function create()
     {
 
-        $events = Event::all();
-        return view('event.create')->with(compact('events'));
     }
 
     /**
@@ -38,17 +35,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-       $event = new Event;
-
-        $event->name    = $request->name;
-		$event->nbPerson    = $request->nbPerson;
-        $event->nbTable  = $request->nbTable;
-		$event->type  = $request->type;
-		
-        $event->save();
-
-
-		return view('event.show')->with(compact('event'));
+        //
     }
 
     /**
@@ -59,9 +46,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $events = Events::find($id);
- 
-        return $events;
+        //
     }
 
     /**
@@ -72,9 +57,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $events = Events::find($id);
- 
-        return $events;
+        //
     }
 
     /**
