@@ -7,7 +7,10 @@
             <h1>Vos projets</h1>
             <ul class="list-group">
 				 @foreach ($events as $event)
-                	<li class="list-group-item">{{ $event->name }}</li>
+                	<li class="list-group-item">
+							{{ $event->name }}
+						
+					</li>
 				@endforeach
                 <br>
                 <a href="{{route('event.create')}}"><li class="list-group-item list-group-item-success">Nouveau projet</li></a>

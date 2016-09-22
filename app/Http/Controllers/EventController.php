@@ -57,7 +57,9 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $events = Events::find($id);
+ 
+        return $events;
     }
 
     /**
@@ -68,7 +70,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $events = Events::find($id);
+ 
+        return $events;
     }
 
     /**

@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('/event', 'EventController');
+Route::get('/event?id={id}', 'EventController@show');
