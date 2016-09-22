@@ -38,15 +38,17 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-       $events = new Event;
+       $event = new Event;
 
-        $events->name    = $request->name;
-		$events->nbPerson    = $request->nbPerson;
-        $events->nbTable  = $request->nbTable;
-		$events->type  = $request->type;
+        $event->name    = $request->name;
+		$event->nbPerson    = $request->nbPerson;
+        $event->nbTable  = $request->nbTable;
+		$event->type  = $request->type;
 		
-        $events->save();
-		return view('home');
+        $event->save();
+
+
+		return view('event.show')->with(compact('event'));
     }
 
     /**
