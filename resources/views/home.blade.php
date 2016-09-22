@@ -10,7 +10,7 @@
                 	<li class="list-group-item">{{ $name }}</li>
 				@endforeach
                 <br>
-                <a href="{{route('event.create')}}"<li class="list-group-item list-group-item-success">Nouveau projet</li>
+                <a href="{{route('event.create')}}"><li class="list-group-item list-group-item-success">Nouveau projet</li></a>
             </ul>
 
         </div>
