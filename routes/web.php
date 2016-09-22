@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'EventController@index');
 
 Route::resource('/event', 'EventController');
+
+Route::get('/profil', 'ProfilController@index');
