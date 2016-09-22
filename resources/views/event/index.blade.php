@@ -8,8 +8,7 @@
             <ul class="list-group">
 				 @foreach ($events as $event)
                 	<li class="list-group-item">
-							{{ $event->name }}
-						
+							<a href="{{url('event/'.$event->id)}}">{{ $event->name }}</a>
 					</li>
 				@endforeach
                 <br>

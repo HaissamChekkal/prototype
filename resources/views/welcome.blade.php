@@ -12,15 +12,25 @@
 
         <!-- Styles -->
         <style>
+            @font-face {
+                font-family: 'Champagne & Limousines';
+                src: url({{asset('/font/champagne.ttf')}});
+            }
+
             html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Champagne & Limousines', sans-serif;
+
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
             }
 
+            h1{
+                font-family: 'Champagne & Limousines', sans-serif;
+                font-size:2em;
+            }
             .full-height {
                 height: 100vh;
             }
@@ -47,7 +57,7 @@
 
             .title {
                 font-size: 70px;
-                font-family: "PenelopeAnne";
+                font-family: "PenelopeAnne", sans-serif;
             }
 
             .links > a {
@@ -78,7 +88,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Stick & move
+                    <h1>Stick & move</h1>
                 </div>
 
 
