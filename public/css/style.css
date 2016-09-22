@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Champagne & Limousines';
+    src: url('../font/champagne.ttf?') format('ttf');
+}
+h4 {
+    font-family:quadranta, sans-serif;
+    font-size:3em;
+}
+
+
 html{
 
 }
