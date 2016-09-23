@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -15,9 +17,13 @@ class EventController extends Controller
      */
     public function index()
     {
+        $users = User::all();
         $user_id = Auth::user()->id;
-		$events = Event::all();
-        return view('event.index')->with(compact('events', 'user_id'));
+//		$events = Event::all();
+        $events = DB::table('events')
+            ->orderBy('date', 'asc')
+            ->get();
+        return view('event.index')->with(compact('events', 'user_id', 'users'));
     }
 
     /**
@@ -54,7 +60,7 @@ class EventController extends Controller
         $event->name    = $request->name;
 		$event->nbPerson    = $request->nbPerson;
         $event->nbTable  = $request->nbTable;
-        $event->capaciteTable  = $request->capaciteTable;
+//        $event->capaciteTable  = $request->capaciteTable;
 		$event->type  = $request->type;
 		$event->culture  = $request->culture;
 		$event->user_id  = $user_id;

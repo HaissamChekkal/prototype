@@ -1,7 +1,9 @@
 <div class="container">
 
+    <a href="{{route('event.index')}}">Retour à la liste</a>
 
-    @if($action == 'edit')
+
+@if($action == 'edit')
         <h1>Modifier les informations d'un event</h1>
 
         {!! Form::model($events, ['route' => ['event.update', $events->id], 'method' => 'PUT', 'files' => 'true']) !!}
@@ -34,6 +36,7 @@
             'placeholder' => 'Nombre de tables'
         ]) !!}
     </div>
+{{--
 
     <div class="form-group">
         {!! Form::label('Capacité de la table') !!}
@@ -42,6 +45,7 @@
             'placeholder' => 'Nombre de tables'
         ]) !!}
     </div>
+--}}
 
     <div class="form-group">
         {!! Form::label('Date de l évenement') !!}
