@@ -36,19 +36,39 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label('Capacité de la table') !!}
+        {!! Form::number('capaciteTable', null, [
+            'class' => 'form-control',
+            'placeholder' => 'Nombre de tables'
+        ]) !!}
+    </div>
+
+    <div class="form-group">
         {!! Form::label('Date de l évenement') !!}
         {!! Form::date('date', null) !!}
     </div>
 
         <div class="form-group">
         Mariage
-        {!! Form::radio('type', 0, true) !!}
+        {!! Form::radio('type', 'mariage', true) !!}
         Meeting
-        {!! Form::radio('type', 1) !!}
+        {!! Form::radio('type', 'meeting') !!}
 	</div>
 
 
-    {!! Form::submit('Enregistrer', ['class' => 'btn btn-success']) !!}
+    <div class="form-group">
+        {!! Form::label('Culture') !!}
+        {!! Form::select('culture', array(
+        'france'=>'Française',
+        'anglais'=>'Anglaise'
+        ), [
+            'class' => 'form-control',
+            'placeholder' => 'Nombre de tables'
+        ]) !!}
+    </div>
+
+
+        {!! Form::submit('Enregistrer', ['class' => 'btn btn-success']) !!}
 
     {!! Form::close() !!}
 </div>
