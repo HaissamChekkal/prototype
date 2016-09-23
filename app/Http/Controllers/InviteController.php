@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
-use App\User;
+use App\Invite;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class EventController extends Controller
+use App\Http\Requests;
+
+class InviteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $user_id = Auth::user()->id;
-//		$events = Event::all();
-        $events = DB::table('events')
-            ->orderBy('date', 'asc')
-            ->get();
-
-        
-
-        return view('event.index')->with(compact('events', 'user_id', 'users'));
+        //
     }
 
     /**
@@ -37,8 +27,8 @@ class EventController extends Controller
     public function create()
     {
 
-        $events = Event::all();
-        return view('event.create')->with(compact('events'));
+        $invites = Invite::all();
+        return view('invite.create')->with(compact('invites'));
     }
 
     /**
@@ -49,30 +39,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'nbPerson' => 'required',
-            'nbTable' => 'required',
-            'type' => 'required'
-        ]);
-
-        $user_id = Auth::user()->id;
-
-        $event = new Event;
-
-        $event->name    = $request->name;
-		$event->nbPerson    = $request->nbPerson;
-        $event->nbTable  = $request->nbTable;
-//        $event->capaciteTable  = $request->capaciteTable;
-		$event->type  = $request->type;
-		$event->culture  = $request->culture;
-		$event->user_id  = $user_id;
-        $event->date  = $request->date;
-
-        $event->save();
-
-
-		return view('event.show')->with(compact('event'));
+        //
     }
 
     /**
@@ -83,9 +50,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $event = Event::find($id);
- 
-        return view('event.show')->with(compact('event'));
+        //
     }
 
     /**
@@ -96,9 +61,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $events = Event::find($id);
- 
-        return $events;
+        //
     }
 
     /**
