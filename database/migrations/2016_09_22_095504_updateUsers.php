@@ -21,6 +21,7 @@ class UpdateUsers extends Migration
 			$table->string('type');
             $table->string('culture');
             $table->smallInteger('user_id');
+            $table->date('date');
         });
     }
 

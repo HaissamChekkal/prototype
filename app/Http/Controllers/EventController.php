@@ -58,6 +58,7 @@ class EventController extends Controller
 		$event->type  = $request->type;
 		$event->culture  = $request->culture;
 		$event->user_id  = $user_id;
+        $event->date  = $request->date;
 
         $event->save();
 
