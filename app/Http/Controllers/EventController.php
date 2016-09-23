@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,10 +24,15 @@ class EventController extends Controller
         $events = DB::table('events')
             ->orderBy('date', 'asc')
             ->get();
+<<<<<<< HEAD
 
         
 
         return view('event.index')->with(compact('events', 'user_id', 'users'));
+=======
+        $dt = new DateTime('today');
+        return view('event.index')->with(compact('events', 'user_id', 'users', 'dt'));
+>>>>>>> b1adb6a2568d7fc92e876afcd24383dc033d8f22
     }
 
     /**
@@ -50,7 +56,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|alpha_num',
             'nbPerson' => 'required',
             'nbTable' => 'required',
             'type' => 'required'
@@ -84,7 +90,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
- 
+        $event->dt = new DateTime('today');
         return view('event.show')->with(compact('event'));
     }
 
