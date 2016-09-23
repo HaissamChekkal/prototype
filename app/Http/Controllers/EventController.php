@@ -41,7 +41,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|alpha_num',
             'nbPerson' => 'required',
             'nbTable' => 'required',
             'type' => 'required'
