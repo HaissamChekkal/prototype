@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,8 @@ class EventController extends Controller
         $events = DB::table('events')
             ->orderBy('date', 'asc')
             ->get();
-        return view('event.index')->with(compact('events', 'user_id', 'users'));
+        $dt = new DateTime('today');
+        return view('event.index')->with(compact('events', 'user_id', 'users', 'dt'));
     }
 
     /**
@@ -81,7 +83,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
- 
+        $event->dt = new DateTime('today');
         return view('event.show')->with(compact('event'));
     }
 
