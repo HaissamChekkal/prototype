@@ -11,6 +11,7 @@
                 <li class="list-group-item">Nombre d'invités: {{ $event->nbPerson }}</li>
                 <li class="list-group-item">Nombre de table: {{ $event->nbTable }}</li>
                 <li class="list-group-item">Type d'évenement: {{ $event->type }}</li>
+                <li class="list-group-item">Date de l'évenement: {{ $event->date }}</li>
             </ul>
         </div>
     </div>
