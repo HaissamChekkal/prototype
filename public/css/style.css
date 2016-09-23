@@ -8,7 +8,10 @@ h4{
 html{
 
 }
-body{background-color: white;}
+body{
+    background: url('../img/mod4b.jpg') no-repeat center fixed;
+    background-size: cover;
+}
 
 h1{
     font-weight: 300;
@@ -57,4 +60,18 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     color: #fff!important;
     background-color: #ff9b62 !important;
     border-color: #ffffff !important;
+}
+
+.list-group-item-success {
+    color: #fff;
+    background-color: #ffab7a;
+    border-color: #ffffff;
+}
+
+.list-group-item {
+    text-align: center;
+}
+
+.panel-default{
+    margin-top: 16%;
 }
