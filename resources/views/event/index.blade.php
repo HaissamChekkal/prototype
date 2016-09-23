@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h1>Vos projets</h1>
+
 
             <table  class="tablesorter table table-responsive">
                 <thead>
@@ -17,6 +17,7 @@
                 </thead>
                 <tbody>
                         @foreach ($events as $event)
+
                             @if(Auth::user()->admin == 1)
                                 <tr>
 
@@ -36,7 +37,11 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        {{$event->date}}
+                                        @if( $event->date < $event->dt )
+                                            Passé
+                                        @else
+                                            {{$event->date}}
+                                        @endif
                                     </td>
                                 </tr>
                             @elseif($event->user_id == $user_id)
@@ -58,7 +63,11 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        {{$event->date}}
+                                        @if( $event->date < $dt )
+                                            Passé
+                                        @else
+                                            {{$event->date}}
+                                        @endif
                                     </td>
                                 </tr>
                             @endif

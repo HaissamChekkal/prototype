@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'PlaceIt') }}</title>
+    <title>{{ config('app.name', 'Stick & Move') }}</title>
 
     <!-- Styles -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
@@ -35,8 +35,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'PlaceIt') }}
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Stick & Move') }}
                 </a>
             </div>
 
@@ -48,6 +48,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url('/event')  }}">Events</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
