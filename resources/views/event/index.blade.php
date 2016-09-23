@@ -37,11 +37,7 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        @if( $event->date < $event->dt )
-                                            Passé
-                                        @else
                                             {{$event->date}}
-                                        @endif
                                     </td>
                                 </tr>
                             @elseif($event->user_id == $user_id)
@@ -63,11 +59,7 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        @if( $event->date < $dt )
-                                            Passé
-                                        @else
                                             {{$event->date}}
-                                        @endif
                                     </td>
                                 </tr>
                             @endif

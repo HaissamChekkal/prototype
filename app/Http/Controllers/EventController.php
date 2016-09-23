@@ -24,8 +24,7 @@ class EventController extends Controller
         $events = DB::table('events')
             ->orderBy('date', 'asc')
             ->get();
-        $dt = new DateTime('today');
-        return view('event.index')->with(compact('events', 'user_id', 'users', 'dt'));
+        return view('event.index')->with(compact('events', 'user_id', 'users'));
     }
 
     /**
@@ -83,7 +82,6 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        $event->dt = new DateTime('today');
         return view('event.show')->with(compact('event'));
     }
 
