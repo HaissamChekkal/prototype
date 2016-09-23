@@ -18,6 +18,7 @@ class UpdateUsers extends Migration
 			$table->smallInteger('nbPerson');
 			$table->smallInteger('nbTable');
 			$table->boolean('type');
+            $table->date('date');
         });
     }
 

@@ -33,9 +33,14 @@
             'class' => 'form-control',
             'placeholder' => 'Nombre de tables'
         ]) !!}
-    </div>	
+    </div>
 
     <div class="form-group">
+        {!! Form::label('Date de l évenement') !!}
+        {!! Form::date('date', null) !!}
+    </div>
+
+        <div class="form-group">
         Mariage
         {!! Form::radio('type', 0, true) !!}
         Meeting
