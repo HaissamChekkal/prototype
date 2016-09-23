@@ -17,7 +17,7 @@ class UpdateUsers extends Migration
             $table->char('name');
 			$table->smallInteger('nbPerson');
 			$table->smallInteger('nbTable');
-			$table->smallInteger('capaciteTable');
+//			$table->smallInteger('capaciteTable');
 			$table->string('type');
             $table->string('culture');
             $table->smallInteger('user_id');
