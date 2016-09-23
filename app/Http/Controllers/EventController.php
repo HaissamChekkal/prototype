@@ -23,6 +23,9 @@ class EventController extends Controller
         $events = DB::table('events')
             ->orderBy('date', 'asc')
             ->get();
+
+        
+
         return view('event.index')->with(compact('events', 'user_id', 'users'));
     }
 
