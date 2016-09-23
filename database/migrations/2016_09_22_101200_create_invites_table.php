@@ -16,8 +16,11 @@ class CreateInvitesTable extends Migration
         Schema::create('invites', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('sexe');
-            $table->string('info1');
+            $table->boolean('sexe');
+            $table->string('age');
+            $table->string('numero');
+            $table->string('email');
+            $table->string('note');
             $table->timestamps();
         });
     }

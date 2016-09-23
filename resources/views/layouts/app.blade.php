@@ -57,7 +57,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->login }} <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -88,6 +88,20 @@
 
     @yield('content')
 
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/jquery.tablesorter.js') }}"></script>
+    {{--<script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>--}}
+    <script>
+        $(function(){
+            $('table').tablesorter({
+                widgets        : ['zebra', 'columns'],
+                usNumberFormat : false,
+                sortReset      : true,
+                sortRestart    : true
+            });
+        });
+    </script>
     <!-- Scripts -->
     <script src="{{asset('js/app.js')}}"></script>
 </body>
