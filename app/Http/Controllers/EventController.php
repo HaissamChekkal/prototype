@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -14,8 +15,9 @@ class EventController extends Controller
      */
     public function index()
     {
+        $user_id = Auth::user()->id;
 		$events = Event::all();
-        return view('event.index')->with(compact('events'));
+        return view('event.index')->with(compact('events', 'user_id'));
     }
 
     /**
@@ -38,13 +40,26 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-       $event = new Event;
+        $this->validate($request, [
+            'name' => 'required',
+            'nbPerson' => 'required',
+            'nbTable' => 'required',
+            'type' => 'required'
+        ]);
+
+        $user_id = Auth::user()->id;
+
+        $event = new Event;
 
         $event->name    = $request->name;
 		$event->nbPerson    = $request->nbPerson;
         $event->nbTable  = $request->nbTable;
+        $event->capaciteTable  = $request->capaciteTable;
 		$event->type  = $request->type;
-		
+		$event->culture  = $request->culture;
+		$event->user_id  = $user_id;
+        $event->date  = $request->date;
+
         $event->save();
 
 
